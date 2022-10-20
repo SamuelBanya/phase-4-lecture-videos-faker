@@ -1,0 +1,232 @@
+* Notes
+I added the 'faker' Ruby gem to the existing project's Gemfile:
+#+begin_src ruby
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "2.7.0"
+
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> 7.0.4"
+
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
+
+# Use sqlite3 as the database for Active Record
+gem "sqlite3", "~> 1.4"
+
+# Use the Puma web server [https://github.com/puma/puma]
+gem "puma", "~> 5.0"
+
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
+
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem "turbo-rails"
+
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
+
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem "jbuilder"
+
+# Use Redis adapter to run Action Cable in production
+# gem "redis", "~> 4.0"
+
+# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+# gem "kredis"
+
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# gem "bcrypt", "~> 3.1.7"
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+
+# Reduces boot times through caching; required in config/boot.rb
+gem "bootsnap", require: false
+
+# Adding 'faker' gem to help generate random fake seed data more easily:
+gem "faker"
+
+# Use Sass to process CSS
+# gem "sassc-rails"
+
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# gem "image_processing", "~> 1.2"
+
+group :development, :test do
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+end
+
+group :development do
+  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "web-console"
+
+  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
+  # gem "rack-mini-profiler"
+
+  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
+  # gem "spring"
+end
+
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+end
+#+end_src
+
+I then ran the related 'bundle install' command right afterwards:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-4/phase-4-lecture-videos-faker/pet-shop $ pwd
+
+/Users/samuelbanya/hub/Development/code/phase-4/phase-4-lecture-videos-faker/pet-shop
+
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-4/phase-4-lecture-videos-faker/pet-shop $ ls
+
+Gemfile         README.md       app             config          db              log             storage         tmp
+Gemfile.lock    Rakefile        bin             config.ru       lib             public          test            vendor
+
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-4/phase-4-lecture-videos-faker/pet-shop $ bundle install
+
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+Fetching gem metadata from https://rubygems.org/...........
+Fetching gem metadata from https://rubygems.org/.
+Resolving dependencies...
+Using rake 13.0.6
+Using concurrent-ruby 1.1.10
+Using i18n 1.12.0
+Using minitest 5.16.3
+Using tzinfo 2.0.5
+Using activesupport 7.0.4
+Using builder 3.2.4
+Using erubi 1.11.0
+Using mini_portile2 2.8.0
+Using racc 1.6.0
+Using nokogiri 1.13.8 (x86_64-darwin)
+Using rails-dom-testing 2.0.3
+Using crass 1.0.6
+Using loofah 2.19.0
+Using rails-html-sanitizer 1.4.3
+Using actionview 7.0.4
+Using rack 2.2.4
+Using rack-test 2.0.2
+Using actionpack 7.0.4
+Using nio4r 2.5.8
+Using websocket-extensions 0.1.5
+Using websocket-driver 0.7.5
+Using actioncable 7.0.4
+Using globalid 1.0.0
+Using activejob 7.0.4
+Using activemodel 7.0.4
+Using activerecord 7.0.4
+Using marcel 1.0.2
+Using mini_mime 1.1.2
+Using activestorage 7.0.4
+Using mail 2.7.1
+Using timeout 0.3.0
+Using net-protocol 0.1.3
+Using net-imap 0.3.1
+Using net-pop 0.1.2
+Using net-smtp 0.3.2
+Using actionmailbox 7.0.4
+Using actionmailer 7.0.4
+Using actiontext 7.0.4
+Using public_suffix 5.0.0
+Using addressable 2.8.1
+Using bindex 0.8.1
+Using msgpack 1.6.0
+Using bootsnap 1.13.0
+Using bundler 2.1.2
+Using matrix 0.4.2
+Using regexp_parser 2.6.0
+Using xpath 3.2.0
+Using capybara 3.37.1
+Using childprocess 4.1.0
+Using io-console 0.5.11
+Using reline 0.3.1
+Using irb 1.4.2
+Using debug 1.6.2
+Fetching faker 2.23.0
+Installing faker 2.23.0
+Using method_source 1.0.0
+Using thor 1.2.1
+Using zeitwerk 2.6.1
+Using railties 7.0.4
+Using importmap-rails 1.1.5
+Using jbuilder 2.11.5
+Using puma 5.6.5
+Using rails 7.0.4
+Using rexml 3.2.5
+Using rubyzip 2.3.2
+Using websocket 1.2.9
+Using selenium-webdriver 4.5.0
+Using sprockets 4.1.1
+Using sprockets-rails 3.4.2
+Using sqlite3 1.5.3 (x86_64-darwin)
+Using stimulus-rails 1.1.0
+Using turbo-rails 1.3.1
+Using web-console 4.2.0
+Using webdrivers 5.2.0
+Bundle complete! 16 Gemfile dependencies, 74 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+#+end_src
+
+I then used the 'Faker::Name' module within the 'Faker' library to create an associated fake name:
+- https://github.com/faker-ruby/faker/blob/main/doc/default/name.md
+
+I then used the 'Faker::Creature::Cat' module within the 'Faker' library to create an associated fake cat breed:
+- https://github.com/faker-ruby/faker/blob/main/doc/creature/cat.md
+
+I then revised the contents of 'app/db/seeds.rb' file with the following contents:
+#+begin_src ruby
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+
+# NOTE: This is the first way we used .create() to create individual 'seed' data:
+# Pet.create(name: "Timmy", breed: "Siamese")
+# Pet.create(name: "King", breed: "Tabby")
+# Pet.create(name: "Lucy", breed: "Siberian")
+
+# Another way to use .create() in a 'seeds' file is to provide an array of hashes to the .create() method itself
+# with corresponding symbol values:
+# Pet.create([{name: "Timmy", breed: "Siamese"},
+#     {name: "King", breed: "Tabby"},
+#     {name: "Lucy", breed: "Siberian"}
+# ])
+
+# Related Docs pages:
+# https://github.com/faker-ruby/faker
+# https://github.com/faker-ruby/faker/blob/main/doc/default/name.md
+# https://github.com/faker-ruby/faker/blob/main/doc/creature/cat.md
+
+# I then created the following example by copying and pasting what was present in the "https://github.com/faker-ruby/faker/blob/main/doc/creature/cat.md"
+# Docs page:
+Pet.create(name: Faker::Creature::Cat.name, breed: Faker::Creature::Cat.breed)
+#+end_src
+
+I then ran the related 'rails db:seed' command accordingly:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-4/phase-4-lecture-videos-faker/pet-shop $ rails db:seed
+
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+#+end_src
+
+I then checked the rails console with the 'rails c' command:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-4/phase-4-lecture-videos-faker/pet-shop $ rails c
+
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+Loading development environment (Rails 7.0.4)
+
+2.7.0 :001 > Pet.all()
+  Pet Load (0.2ms)  SELECT "pets".* FROM "pets"
+ => [#<Pet:0x00007ff627915328 id: 1, name: "Lucy", breed: "Savannah", created_at: Thu, 20 Oct 2022 00:31:50.788565000 UTC +00:00, updated_at: Thu, 20 Oct 2022 00:31:50.788565000 UTC +00:00>]
+#+end_src
